@@ -28,5 +28,7 @@ tn.write(b"show configuration|display set\n")
 print(tn.read_until(bytes(("%s>" % hostname).encode())).decode('ascii'))
 
 tn.write(b"exit\n")
+print(tn.read_until(bytes(("%").encode())).decode('ascii'))
 
+tn.write(b"exit\n")
 print(tn.read_all().decode('ascii'))
