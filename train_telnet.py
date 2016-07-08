@@ -16,16 +16,16 @@ if password:
 # tn.write(b"date\n")
 
 tn.write(b"cli\n")
-print(tn.read_until(b">").decode('ascii'))
+print(tn.read_until(bytes(("%s>" % hostname).encode())).decode('ascii'))
 
 tn.write(b"set cli screen-length 0\n")
-print(tn.read_until(b">").decode('ascii'))
+print(tn.read_until(bytes(("%s>" % hostname).encode())).decode('ascii'))
 
 tn.write(b"show version\n")
-print(tn.read_until(b">").decode('ascii'))
+print(tn.read_until(bytes(("%s>" % hostname).encode())).decode('ascii'))
 
 tn.write(b"show configuration|display set\n")
-print(tn.read_until(b">").decode('ascii'))
+print(tn.read_until(bytes(("%s>" % hostname).encode())).decode('ascii'))
 
 tn.write(b"exit\n")
 
